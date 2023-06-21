@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 )
@@ -23,4 +24,5 @@ func main() {
 	// this is important!
 	defer file.Close()
 	// add print here for file
+	fmt.Printf(filename)
 }

@@ -1,0 +1,416 @@
+==> Vault server configuration:
+
+             Api Address: http://10.42.10.200:8200
+                     Cgo: disabled
+         Cluster Address: https://10.42.10.200:8201
+              Go Version: go1.17.13
+              Listener 1: tcp (addr: "0.0.0.0:8200", cluster address: "0.0.0.0:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: trace
+                   Mlock: supported: true, enabled: false
+           Recovery Mode: false
+                 Storage: raft (HA available)
+                 Version: Vault v1.11.3+ent, built 2022-08-26T19:02:37Z
+             Version Sha: e478e14ab77bf780fda0349356022c9bfd89e5a6
+
+==> Vault server started! Log data will stream in below:
+
+2023-06-21T06:52:47.232Z [INFO]  proxy environment: http_proxy="" https_proxy="" no_proxy=""
+2023-06-21T06:52:47.240Z [DEBUG] storage.raft.fsm: time to open database: elapsed=5.9844ms path=/var/raft/vault.db
+2023-06-21T06:52:47.250Z [DEBUG] core: set config: sanitized config="{\"api_addr\":\"http://10.42.10.200:8200\",\"cache_size\":0,\"cluster_addr\":\"http://10.42.10.200:8201\",\"cluster_cipher_suites\":\"\",\"cluster_name\":\"repl\",\"default_lease_ttl\":0,\"default_max_request_duration\":0,\"disable_cache\":false,\"disable_clustering\":false,\"disable_indexing\":false,\"disable_mlock\":true,\"disable_performance_standby\":false,\"disable_printable_check\":false,\"disable_sealwrap\":false,\"disable_sentinel_trace\":false,\"enable_response_header_hostname\":false,\"enable_response_header_raft_node_id\":false,\"enable_ui\":true,\"listeners\":[{\"config\":{\"address\":\"0.0.0.0:8200\",\"cluster_address\":\"0.0.0.0:8201\",\"tls_disable\":1},\"type\":\"tcp\"}],\"log_format\":\"unspecified\",\"log_level\":\"trace\",\"log_requests_level\":\"\",\"max_lease_ttl\":0,\"pid_file\":\"\",\"plugin_directory\":\"\",\"plugin_file_permissions\":0,\"plugin_file_uid\":0,\"raw_storage_endpoint\":false,\"seals\":[{\"disabled\":false,\"type\":\"shamir\"}],\"storage\":{\"cluster_addr\":\"http://10.42.10.200:8201\",\"disable_clustering\":false,\"redirect_addr\":\"http://10.42.10.200:8200\",\"type\":\"raft\"}}"
+2023-06-21T06:52:47.250Z [TRACE] core: activating sealwrap capability
+2023-06-21T06:52:47.250Z [TRACE] core: initializing licensing
+2023-06-21T06:52:47.251Z [INFO]  core: using autoloaded license: license="{\"license_id\":\"66d2f9c1-a45d-a8b2-1708-36eacdc31b2e\",\"customer_id\":\"f7f258fb-d714-c21f-43d1-968af69c353c\",\"installation_id\":\"*\",\"issue_time\":\"2022-11-15T10:00:44.787254693Z\",\"start_time\":\"2022-11-15T00:00:00Z\",\"expiration_time\":\"2026-12-15T00:00:00Z\",\"flags\":{\"modules\":[\"multi-dc-scale\",\"governance-policy\",\"advanced-data-protection\",\"advanced-data-protection-key-management\"]},\"features\":[\"HSM\",\"Performance Replication\",\"DR Replication\",\"MFA\",\"Sentinel\",\"Seal Wrapping\",\"Control Groups\",\"Performance Standby\",\"Namespaces\",\"KMIP\",\"Entropy Augmentation\",\"Transform Secrets Engine\",\"Lease Count Quotas\",\"Key Management Secrets Engine\",\"Automated Snapshots\",\"Key Management Transparent Data Encryption\"],\"performance_standby_count\":9999}"
+2023-06-21T06:52:47.252Z [DEBUG] storage.cache: creating LRU cache: size=0
+2023-06-21T06:52:47.253Z [INFO]  replication.perf.logshipper: Initializing new log shipper: max_elements=16384 max_bytes=417301708
+2023-06-21T06:52:47.253Z [INFO]  replication.dr.logshipper: Initializing new log shipper: max_elements=16384 max_bytes=417301708
+2023-06-21T06:52:47.253Z [INFO]  core: Initializing version history cache for core
+2023-06-21T06:52:47.253Z [DEBUG] cluster listener addresses synthesized: cluster_addresses=[0.0.0.0:8201]
+2023-06-21T06:52:47.254Z [DEBUG] would have sent systemd notification (systemd not present): notification=READY=1
+2023-06-21T06:52:47.280Z [INFO]  core: security barrier not initialized
+2023-06-21T06:52:47.281Z [INFO]  core: seal configuration missing, not initialized
+2023-06-21T06:52:47.284Z [INFO]  core: security barrier not initialized
+2023-06-21T06:52:47.284Z [DEBUG] core: bootstrapping raft backend
+2023-06-21T06:52:47.284Z [TRACE] storage.raft: setting up raft cluster
+2023-06-21T06:52:47.284Z [TRACE] storage.raft: applying raft config: inputs="map[node_id:0 path:/var/raft/]"
+2023-06-21T06:52:47.288Z [INFO]  storage.raft: creating Raft: config="&raft.Config{ProtocolVersion:3, HeartbeatTimeout:5000000000, ElectionTimeout:5000000000, CommitTimeout:50000000, MaxAppendEntries:64, BatchApplyCh:true, ShutdownOnRemove:true, TrailingLogs:0x2800, SnapshotInterval:120000000000, SnapshotThreshold:0x2000, LeaderLeaseTimeout:2500000000, LocalID:\"0\", NotifyCh:(chan<- bool)(0xc00082c770), LogOutput:io.Writer(nil), LogLevel:\"DEBUG\", Logger:(*hclog.interceptLogger)(0xc000b02b70), NoSnapshotRestoreOnStart:true, skipStartup:false}"
+2023-06-21T06:52:47.290Z [INFO]  storage.raft: initial configuration: index=1 servers="[{Suffrage:Voter ID:0 Address:10.42.10.200:8201}]"
+2023-06-21T06:52:47.290Z [INFO]  storage.raft: entering follower state: follower="Node at 0 [Follower]" leader-address= leader-id=
+2023-06-21T06:52:56.080Z [INFO]  core: security barrier not initialized
+2023-06-21T06:52:56.730Z [WARN]  storage.raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+2023-06-21T06:52:56.730Z [INFO]  storage.raft: entering candidate state: node="Node at 0 [Candidate]" term=2
+2023-06-21T06:52:56.736Z [DEBUG] storage.raft: votes: needed=1
+2023-06-21T06:52:56.736Z [DEBUG] storage.raft: vote granted: from=0 term=2 tally=1
+2023-06-21T06:52:56.737Z [INFO]  storage.raft: election won: tally=1
+2023-06-21T06:52:56.737Z [INFO]  storage.raft: entering leader state: leader="Node at 0 [Leader]"
+2023-06-21T06:52:56.742Z [TRACE] storage.raft: finished setting up raft cluster
+2023-06-21T06:52:56.742Z [DEBUG] core: finished bootstrapping raft backend
+2023-06-21T06:52:56.742Z [INFO]  core: seal configuration missing, not initialized
+2023-06-21T06:52:56.742Z [TRACE] sealwrap: wrapping entry: key=core/keyring
+2023-06-21T06:52:56.745Z [TRACE] sealwrap: wrapping entry: key=core/master
+2023-06-21T06:52:56.747Z [TRACE] sealwrap: wrapping entry: key=core/shamir-kek
+2023-06-21T06:52:56.750Z [INFO]  core: security barrier initialized: stored=1 shares=1 threshold=1
+2023-06-21T06:52:56.758Z [DEBUG] core: cluster name set: name=repl
+2023-06-21T06:52:56.758Z [DEBUG] core: cluster ID not found, generating new
+2023-06-21T06:52:56.758Z [DEBUG] core: cluster ID set: id=b98eef25-fbcc-ae65-14a2-2a66b5d7a8bd
+2023-06-21T06:52:56.758Z [DEBUG] core: generating cluster private key
+2023-06-21T06:52:56.760Z [DEBUG] core: generating local cluster certificate: host=fw-720ffd3f-c491-a35b-6728-c82eea5c4d26
+2023-06-21T06:52:56.769Z [INFO]  core: post-unseal setup starting
+2023-06-21T06:52:56.770Z [DEBUG] core: clearing forwarding clients
+2023-06-21T06:52:56.770Z [DEBUG] core: done clearing forwarding clients
+2023-06-21T06:52:56.770Z [DEBUG] sealwrap: checking upgrades
+2023-06-21T06:52:56.770Z [DEBUG] sealwrap: upgrade completed successfully
+2023-06-21T06:52:56.770Z [DEBUG] core: successfully upgraded barrier config
+2023-06-21T06:52:56.771Z [INFO]  replication.wal: no log directories found: root=wal/logs/
+2023-06-21T06:52:56.799Z [INFO]  replication.index.perf: no index pages found
+2023-06-21T06:52:56.800Z [INFO]  replication.index.perf: no checkpoint found
+2023-06-21T06:52:56.800Z [DEBUG] replication.index.perf: missing checkpoint, using last commit from index pages: last_commit=0
+2023-06-21T06:52:56.800Z [INFO]  replication.index: no previous commit, forcing re-index: path-type=1
+2023-06-21T06:52:56.828Z [INFO]  replication.index.local: no index pages found
+2023-06-21T06:52:56.829Z [INFO]  replication.index.local: no checkpoint found
+2023-06-21T06:52:56.829Z [DEBUG] replication.index.local: missing checkpoint, using last commit from index pages: last_commit=0
+2023-06-21T06:52:56.829Z [INFO]  replication.index: no previous commit, forcing re-index: path-type=2
+2023-06-21T06:52:56.829Z [DEBUG] replication.wal: no logs to replay: commit_index=0 last_index=0
+2023-06-21T06:52:56.829Z [TRACE] core.snapshotmgr: starting automatic snapshot manager
+2023-06-21T06:52:56.830Z [TRACE] core.snapshotmgr: processing configs: names=[] old=[]
+2023-06-21T06:52:56.838Z [INFO]  core.licensing: stored license removal was successful
+2023-06-21T06:52:56.843Z [DEBUG] core: persisting feature flags
+2023-06-21T06:52:56.848Z [DEBUG] sealwrap: wrapping entry: key=core/wrapping/jwtkey
+2023-06-21T06:52:56.848Z [DEBUG] sealwrap: wrapping entry: key=wal/logs/00000000/0003
+2023-06-21T06:52:56.853Z [INFO]  core: loaded wrapping token key
+2023-06-21T06:52:56.856Z [INFO]  core: Recorded vault version: vault version=1.11.3 upgrade time="2023-06-21 06:52:56.8531084 +0000 UTC" build date=2022-08-26T19:02:37Z
+2023-06-21T06:52:56.857Z [INFO]  core: successfully setup plugin catalog: plugin-directory=""
+2023-06-21T06:52:56.857Z [INFO]  core: no mounts; adding default mount table
+2023-06-21T06:52:56.868Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2023-06-21T06:52:56.869Z [TRACE] core: adding local paths: paths=["sys/expire/", "sys/counters/"]
+2023-06-21T06:52:56.869Z [TRACE] core: adding sealwrap paths: paths=["sys/managed-key-registry/"]
+2023-06-21T06:52:56.869Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2023-06-21T06:52:56.869Z [TRACE] core: adding local paths: paths=["logical/3b2f2635-a099-e2fd-8405-109bd6b3af14/packer/local-aliases/buckets/"]
+2023-06-21T06:52:56.869Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2023-06-21T06:52:56.906Z [TRACE] token: no token generation counter found in storage
+2023-06-21T06:52:56.906Z [TRACE] core: adding local paths: paths=["sys/token/id/", "sys/token/accessor/", "sys/token/parent/", "sys/token/salt"]
+2023-06-21T06:52:56.906Z [INFO]  core: successfully enabled credential backend: type=token path=token/ namespace="ID: root. Path: "
+2023-06-21T06:52:56.907Z [TRACE] expiration.job-manager: created dispatcher: name=expire-dispatcher num_workers=200
+2023-06-21T06:52:56.907Z [INFO]  rollback: starting rollback manager
+2023-06-21T06:52:56.907Z [TRACE] expiration.job-manager: initialized dispatcher: num_workers=200
+2023-06-21T06:52:56.907Z [TRACE] expiration.job-manager: created job manager: name=expire pool_size=200
+2023-06-21T06:52:56.907Z [TRACE] expiration.job-manager: starting job manager: name=expire
+2023-06-21T06:52:56.907Z [TRACE] expiration.job-manager: starting dispatcher
+2023-06-21T06:52:56.908Z [INFO]  core: restoring leases
+2023-06-21T06:52:56.908Z [DEBUG] expiration: collecting leases
+2023-06-21T06:52:56.908Z [DEBUG] expiration: leases collected: num_existing=0
+2023-06-21T06:52:56.909Z [INFO]  expiration: lease restore complete
+2023-06-21T06:52:56.920Z [DEBUG] identity: loading entities
+2023-06-21T06:52:56.920Z [DEBUG] identity: entities collected: num_existing=0
+2023-06-21T06:52:56.921Z [INFO]  identity: entities restored
+2023-06-21T06:52:56.921Z [DEBUG] identity: identity loading groups
+2023-06-21T06:52:56.921Z [DEBUG] identity: groups collected: num_existing=0
+2023-06-21T06:52:56.921Z [INFO]  identity: groups restored
+2023-06-21T06:52:56.921Z [DEBUG] identity: identity loading OIDC clients
+2023-06-21T06:52:56.921Z [DEBUG] system.mfa: loading methods
+2023-06-21T06:52:56.921Z [DEBUG] system.mfa: methods collected: num_existing=0
+2023-06-21T06:52:56.921Z [INFO]  system.mfa: configurations restored
+2023-06-21T06:52:56.921Z [TRACE] mfa: loading login MFA configurations
+2023-06-21T06:52:56.922Z [TRACE] mfa: methods collected: num_existing=0
+2023-06-21T06:52:56.922Z [TRACE] mfa: configurations restored: namespace="" prefix=login-mfa/method/
+2023-06-21T06:52:56.922Z [TRACE] mfa: loading login MFA enforcement configurations
+2023-06-21T06:52:56.922Z [TRACE] mfa: enforcements configs collected: num_existing=0
+2023-06-21T06:52:56.922Z [TRACE] mfa: enforcement configurations restored: namespace="" prefix=login-mfa/enforcement/
+2023-06-21T06:52:56.923Z [TRACE] activity: scanned existing logs: out=[]
+2023-06-21T06:52:56.923Z [TRACE] activity: initializing new log
+2023-06-21T06:52:56.923Z [INFO]  core: stopping replication
+2023-06-21T06:52:56.923Z [INFO]  core: closed sync connection
+2023-06-21T06:52:56.923Z [TRACE] replication.perf.logshipper: interrupting streams
+2023-06-21T06:52:56.923Z [TRACE] replication.perf.logshipper: done interrupting streams
+2023-06-21T06:52:56.923Z [TRACE] replication.dr.logshipper: interrupting streams
+2023-06-21T06:52:56.923Z [TRACE] replication.dr.logshipper: done interrupting streams
+2023-06-21T06:52:56.923Z [INFO]  core: replication stopped
+2023-06-21T06:52:56.923Z [INFO]  core: setting up replication
+2023-06-21T06:52:56.923Z [TRACE] activity: no intent log found
+2023-06-21T06:52:56.923Z [ERROR] core: a merkle tree reindex is required before replication can be started
+2023-06-21T06:52:56.923Z [INFO]  core: running replication reindexing: diff=false force=false toggle replication=false no flush=false trees=2
+2023-06-21T06:52:56.924Z [TRACE] activity: scanned existing logs: out=[]
+2023-06-21T06:52:56.934Z [INFO]  replication.index.reindex: set starting WAL: value=12
+2023-06-21T06:52:56.989Z [INFO]  replication.index.reindex: starting storage scan
+2023-06-21T06:52:56.991Z [INFO]  replication.index.reindex: key scanning complete: num_keys=13
+2023-06-21T06:52:56.994Z [INFO]  replication.index.reindex: performing first replay: lastWAL=12
+2023-06-21T06:52:56.994Z [INFO]  replication.index.reindex: locking tree
+2023-06-21T06:52:56.994Z [INFO]  replication.index.reindex: locked tree
+2023-06-21T06:52:56.994Z [INFO]  replication.index.reindex: performing second replay: lastWAL=12
+2023-06-21T06:52:56.994Z [INFO]  replication.index.reindex: committing trees
+2023-06-21T06:52:56.994Z [INFO]  replication.index.reindex: root hash mis-match
+2023-06-21T06:52:56.995Z [INFO]  replication.index.reindex: reindexing subtree: tree=1
+2023-06-21T06:52:56.995Z [INFO]  replication.index.perf.reindex.subtree: locking subtree
+2023-06-21T06:52:56.995Z [INFO]  replication.index.perf.reindex.subtree: locked subtree
+2023-06-21T06:52:56.995Z [INFO]  replication.index.perf.reindex.subtree: subtree root hash mis-match
+2023-06-21T06:52:56.997Z [INFO]  replication.index.perf.reindex.subtree: reindexed subtree page, page diverged: page=15
+2023-06-21T06:52:57.030Z [INFO]  replication.index.perf.reindex.subtree: flushing dirty pages: num_dirty=9
+2023-06-21T06:52:57.043Z [DEBUG] replication.index.perf: flushed dirty pages: pages_flushed=1 pages_outstanding=8
+2023-06-21T06:52:57.050Z [DEBUG] replication.index.local: flushed dirty pages: pages_flushed=1 pages_outstanding=3
+2023-06-21T06:52:57.088Z [DEBUG] replication.index.perf: flushed dirty pages: pages_flushed=9 pages_outstanding=0
+2023-06-21T06:52:57.088Z [INFO]  replication.index.reindex: done reindexing subtree, deleting WAL: bad pages=1 tree=1
+2023-06-21T06:52:57.094Z [INFO]  replication.index.reindex: reindexing subtree: tree=2
+2023-06-21T06:52:57.094Z [INFO]  replication.index.local.reindex.subtree: locking subtree
+2023-06-21T06:52:57.094Z [INFO]  replication.index.local.reindex.subtree: locked subtree
+2023-06-21T06:52:57.094Z [DEBUG] replication.index.local.reindex.subtree: subtree root hash verified
+2023-06-21T06:52:57.152Z [INFO]  replication.index.local.reindex.subtree: flushing dirty pages: num_dirty=3
+2023-06-21T06:52:57.169Z [DEBUG] replication.index.local: flushed dirty pages: pages_flushed=3 pages_outstanding=0
+2023-06-21T06:52:57.169Z [INFO]  replication.index.reindex: done reindexing subtree, deleting WAL: bad pages=0 tree=2
+2023-06-21T06:52:57.184Z [INFO]  core: replication reindex complete: fixed_pages=1
+2023-06-21T06:52:57.193Z [INFO]  core: replicated cluster information not found or disabled, not activating client
+2023-06-21T06:52:57.193Z [INFO]  core: replication setup finished
+2023-06-21T06:52:57.193Z [INFO]  core: usage gauge collection is disabled
+2023-06-21T06:52:57.199Z [DEBUG] secrets.identity.identity_692bba1a: wrote OIDC default provider
+2023-06-21T06:52:57.236Z [DEBUG] replication.index.perf: flushed dirty pages: pages_flushed=1 pages_outstanding=0
+2023-06-21T06:52:57.359Z [DEBUG] secrets.identity.identity_692bba1a: generated OIDC public key to sign JWTs: key_id=bb116a17-a1e0-2769-1273-43b30b8d6d3b
+2023-06-21T06:52:57.437Z [DEBUG] replication.index.perf: flushed dirty pages: pages_flushed=1 pages_outstanding=0
+2023-06-21T06:52:57.710Z [DEBUG] secrets.identity.identity_692bba1a: generated OIDC public key for future use: key_id=b022535d-9dc4-9676-c6fe-eefe034e6348
+2023-06-21T06:52:57.716Z [DEBUG] secrets.identity.identity_692bba1a: wrote OIDC default key
+2023-06-21T06:52:57.723Z [DEBUG] secrets.identity.identity_692bba1a: wrote OIDC allow_all assignment
+2023-06-21T06:52:57.728Z [INFO]  core: post-unseal setup complete
+2023-06-21T06:52:57.740Z [DEBUG] sealwrap: wrapping entry: key=sys/token/id/h26decb1d2077acddda2e9e09cdc0348ee52f13c7860c39b51600c253115554ba
+2023-06-21T06:52:57.740Z [DEBUG] sealwrap: wrapping entry: key=wal/logs/00000000/0017
+2023-06-21T06:52:57.746Z [DEBUG] token: no wal state found when generating token
+2023-06-21T06:52:57.747Z [INFO]  core: root token generated
+2023-06-21T06:52:57.759Z [INFO]  core: pre-seal teardown starting
+2023-06-21T06:52:57.759Z [INFO]  core: stopping raft active node
+2023-06-21T06:52:57.759Z [INFO]  core: stopping replication
+2023-06-21T06:52:57.760Z [INFO]  core: closed sync connection
+2023-06-21T06:52:57.760Z [TRACE] replication.perf.logshipper: interrupting streams
+2023-06-21T06:52:57.760Z [TRACE] replication.perf.logshipper: done interrupting streams
+2023-06-21T06:52:57.760Z [TRACE] replication.dr.logshipper: interrupting streams
+2023-06-21T06:52:57.760Z [TRACE] replication.dr.logshipper: done interrupting streams
+2023-06-21T06:52:57.760Z [INFO]  core: replication stopped
+2023-06-21T06:52:57.760Z [DEBUG] expiration: stop triggered
+2023-06-21T06:52:57.760Z [TRACE] expiration.job-manager: terminating job manager...
+2023-06-21T06:52:57.760Z [TRACE] expiration.job-manager: terminating dispatcher
+2023-06-21T06:52:57.761Z [DEBUG] expiration: finished stopping
+2023-06-21T06:52:57.761Z [INFO]  rollback: stopping rollback manager
+2023-06-21T06:52:57.761Z [TRACE] core.snapshotmgr: shutting down automatic snapshots
+2023-06-21T06:52:57.761Z [DEBUG] sealwrap: stopping upgrades
+2023-06-21T06:52:57.761Z [DEBUG] core: set storage to read-write
+2023-06-21T06:52:57.761Z [INFO]  core: pre-seal teardown complete
+2023-06-21T06:52:57.841Z [DEBUG] core: unseal key supplied: migrate=false
+2023-06-21T06:52:57.842Z [DEBUG] core: starting cluster listeners
+2023-06-21T06:52:57.842Z [INFO]  core.cluster-listener.tcp: starting listener: listener_address=0.0.0.0:8201
+2023-06-21T06:52:57.843Z [INFO]  core.cluster-listener: serving cluster requests: cluster_listen_address=[::]:8201
+2023-06-21T06:52:57.843Z [TRACE] storage.raft: setting up raft cluster
+2023-06-21T06:52:57.843Z [TRACE] storage.raft: applying raft config: inputs="map[node_id:0 path:/var/raft/]"
+2023-06-21T06:52:57.843Z [TRACE] storage.raft: using larger timeouts for raft at startup: initial_election_timeout=15s initial_heartbeat_timeout=15s normal_election_timeout=5s normal_heartbeat_timeout=5s
+2023-06-21T06:52:57.845Z [INFO]  storage.raft: creating Raft: config="&raft.Config{ProtocolVersion:3, HeartbeatTimeout:15000000000, ElectionTimeout:15000000000, CommitTimeout:50000000, MaxAppendEntries:64, BatchApplyCh:true, ShutdownOnRemove:true, TrailingLogs:0x2800, SnapshotInterval:120000000000, SnapshotThreshold:0x2000, LeaderLeaseTimeout:2500000000, LocalID:\"0\", NotifyCh:(chan<- bool)(0xc00082d030), LogOutput:io.Writer(nil), LogLevel:\"DEBUG\", Logger:(*hclog.interceptLogger)(0xc000b02b70), NoSnapshotRestoreOnStart:true, skipStartup:false}"
+2023-06-21T06:52:57.846Z [INFO]  storage.raft: initial configuration: index=1 servers="[{Suffrage:Voter ID:0 Address:10.42.10.200:8201}]"
+2023-06-21T06:52:57.846Z [INFO]  storage.raft: entering follower state: follower="Node at 10.42.10.200:8201 [Follower]" leader-address= leader-id=
+2023-06-21T06:52:57.847Z [WARN]  storage.raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+2023-06-21T06:52:57.847Z [INFO]  storage.raft: entering candidate state: node="Node at 10.42.10.200:8201 [Candidate]" term=3
+2023-06-21T06:52:57.846Z [TRACE] storage.raft: reloaded raft config to set lower timeouts: config="raft.ReloadableConfig{TrailingLogs:0x2800, SnapshotInterval:120000000000, SnapshotThreshold:0x2000, HeartbeatTimeout:5000000000, ElectionTimeout:5000000000}"
+2023-06-21T06:52:57.847Z [TRACE] storage.raft: finished setting up raft cluster
+2023-06-21T06:52:57.847Z [INFO]  core: entering standby mode
+2023-06-21T06:52:57.847Z [INFO]  core: vault is unsealed
+2023-06-21T06:52:57.848Z [INFO]  core: performance standby: forwarding client is nil, waiting for new leader
+2023-06-21T06:52:57.851Z [DEBUG] storage.raft: votes: needed=1
+2023-06-21T06:52:57.851Z [DEBUG] storage.raft: vote granted: from=0 term=3 tally=1
+2023-06-21T06:52:57.851Z [INFO]  storage.raft: election won: tally=1
+2023-06-21T06:52:57.852Z [INFO]  storage.raft: entering leader state: leader="Node at 10.42.10.200:8201 [Leader]"
+2023-06-21T06:52:57.860Z [INFO]  core: acquired lock, enabling active operation
+2023-06-21T06:52:57.861Z [DEBUG] core: generating cluster private key
+2023-06-21T06:52:57.863Z [DEBUG] core: generating local cluster certificate: host=fw-c543c0f5-df95-2591-094e-7fff3dacb3d3
+2023-06-21T06:52:57.869Z [TRACE] sealwrap: wrapping entry: key=core/leader/1a04dc36-efc0-9923-ecfd-41265bdeaeaf
+2023-06-21T06:52:57.874Z [INFO]  core: post-unseal setup starting
+2023-06-21T06:52:57.874Z [DEBUG] core: clearing forwarding clients
+2023-06-21T06:52:57.874Z [DEBUG] core: done clearing forwarding clients
+2023-06-21T06:52:57.874Z [DEBUG] sealwrap: checking upgrades
+2023-06-21T06:52:57.875Z [DEBUG] sealwrap: upgrade completed successfully
+2023-06-21T06:52:57.875Z [DEBUG] core: successfully upgraded barrier config
+2023-06-21T06:52:57.876Z [INFO]  replication.wal: wal range recovered: first_wal=1 last_wal=23
+2023-06-21T06:52:57.878Z [DEBUG] replication.index.perf: restored page: page=15 size=626 last_commit=11
+2023-06-21T06:52:57.878Z [DEBUG] replication.index.perf: restored page: page=16 size=12988 last_commit=11
+2023-06-21T06:52:57.879Z [DEBUG] replication.index.perf: restored page: page=23 size=13004 last_commit=11
+2023-06-21T06:52:57.895Z [DEBUG] replication.index.perf: restored page: page=145 size=13004 last_commit=11
+2023-06-21T06:52:57.897Z [DEBUG] replication.index.perf: restored page: page=151 size=13086 last_commit=16
+2023-06-21T06:52:57.898Z [DEBUG] replication.index.perf: restored page: page=162 size=13006 last_commit=11
+2023-06-21T06:52:57.900Z [DEBUG] replication.index.perf: restored page: page=169 size=13002 last_commit=11
+2023-06-21T06:52:57.901Z [DEBUG] replication.index.perf: restored page: page=179 size=12987 last_commit=11
+2023-06-21T06:52:57.903Z [DEBUG] replication.index.perf: restored page: page=193 size=13054 last_commit=15
+2023-06-21T06:52:57.909Z [DEBUG] replication.index.perf: restored page: page=242 size=12989 last_commit=11
+2023-06-21T06:52:57.911Z [DEBUG] replication.index.perf: restored page: page=254 size=12996 last_commit=11
+2023-06-21T06:52:57.911Z [WARN]  replication.index.perf: unexpected number of index pages found: pages_restored=11 expect=256
+2023-06-21T06:52:57.912Z [INFO]  replication.index.perf: no checkpoint found
+2023-06-21T06:52:57.912Z [DEBUG] replication.index.perf: missing checkpoint, using last commit from index pages: last_commit=0
+2023-06-21T06:52:57.912Z [INFO]  replication.index: no previous commit, forcing re-index: path-type=1
+2023-06-21T06:52:57.917Z [DEBUG] replication.index.local: restored page: page=34 size=12995 last_commit=12
+2023-06-21T06:52:57.924Z [DEBUG] replication.index.local: restored page: page=88 size=12993 last_commit=12
+2023-06-21T06:52:57.930Z [DEBUG] replication.index.local: restored page: page=136 size=12994 last_commit=12
+2023-06-21T06:52:57.941Z [DEBUG] replication.index.local: restored page: page=225 size=12998 last_commit=12
+2023-06-21T06:52:57.945Z [WARN]  replication.index.local: unexpected number of index pages found: pages_restored=4 expect=256
+2023-06-21T06:52:57.945Z [INFO]  replication.index.local: no checkpoint found
+2023-06-21T06:52:57.945Z [DEBUG] replication.index.local: missing checkpoint, using last commit from index pages: last_commit=0
+2023-06-21T06:52:57.945Z [INFO]  replication.index: no previous commit, forcing re-index: path-type=2
+2023-06-21T06:52:57.945Z [INFO]  replication.wal: prepared to replay logs: diff=23 commit_index=0 last_index=23
+2023-06-21T06:52:57.949Z [INFO]  replication.wal: log replay complete: replayed=23 commit_index=0 last_index=23
+2023-06-21T06:52:57.950Z [TRACE] core.snapshotmgr: starting automatic snapshot manager
+2023-06-21T06:52:57.950Z [TRACE] core.snapshotmgr: processing configs: names=[] old=[]
+2023-06-21T06:52:57.960Z [INFO]  core.licensing: stored license removal was successful
+2023-06-21T06:52:57.960Z [DEBUG] core: persisting feature flags
+2023-06-21T06:52:57.966Z [INFO]  core: loaded wrapping token key
+2023-06-21T06:52:57.966Z [INFO]  core: successfully setup plugin catalog: plugin-directory=""
+2023-06-21T06:52:57.968Z [TRACE] core: adding local paths: paths=["sys/expire/", "sys/counters/"]
+2023-06-21T06:52:57.968Z [TRACE] core: adding sealwrap paths: paths=["sys/managed-key-registry/"]
+2023-06-21T06:52:57.968Z [INFO]  core: successfully mounted backend: type=system path=sys/
+2023-06-21T06:52:57.968Z [TRACE] core: adding local paths: paths=["logical/3b2f2635-a099-e2fd-8405-109bd6b3af14/packer/local-aliases/buckets/"]
+2023-06-21T06:52:57.968Z [INFO]  core: successfully mounted backend: type=identity path=identity/
+2023-06-21T06:52:57.968Z [INFO]  core: successfully mounted backend: type=cubbyhole path=cubbyhole/
+2023-06-21T06:52:57.971Z [TRACE] token: no token generation counter found in storage
+2023-06-21T06:52:57.971Z [TRACE] core: adding local paths: paths=["sys/token/id/", "sys/token/accessor/", "sys/token/parent/", "sys/token/salt"]
+2023-06-21T06:52:57.971Z [INFO]  core: successfully enabled credential backend: type=token path=token/ namespace="ID: root. Path: "
+2023-06-21T06:52:57.972Z [TRACE] expiration.job-manager: created dispatcher: name=expire-dispatcher num_workers=200
+2023-06-21T06:52:57.972Z [TRACE] expiration.job-manager: initialized dispatcher: num_workers=200
+2023-06-21T06:52:57.972Z [TRACE] expiration.job-manager: created job manager: name=expire pool_size=200
+2023-06-21T06:52:57.972Z [TRACE] expiration.job-manager: starting job manager: name=expire
+2023-06-21T06:52:57.972Z [TRACE] expiration.job-manager: starting dispatcher
+2023-06-21T06:52:57.972Z [INFO]  rollback: starting rollback manager
+2023-06-21T06:52:57.973Z [INFO]  core: restoring leases
+2023-06-21T06:52:57.974Z [DEBUG] identity: loading entities
+2023-06-21T06:52:57.974Z [DEBUG] expiration: collecting leases
+2023-06-21T06:52:57.974Z [DEBUG] identity: entities collected: num_existing=0
+2023-06-21T06:52:57.974Z [DEBUG] expiration: leases collected: num_existing=0
+2023-06-21T06:52:57.975Z [INFO]  identity: entities restored
+2023-06-21T06:52:57.975Z [DEBUG] identity: identity loading groups
+2023-06-21T06:52:57.975Z [INFO]  expiration: lease restore complete
+2023-06-21T06:52:57.975Z [DEBUG] identity: groups collected: num_existing=0
+2023-06-21T06:52:57.975Z [INFO]  identity: groups restored
+2023-06-21T06:52:57.975Z [DEBUG] identity: identity loading OIDC clients
+2023-06-21T06:52:57.975Z [DEBUG] system.mfa: loading methods
+2023-06-21T06:52:57.975Z [DEBUG] system.mfa: methods collected: num_existing=0
+2023-06-21T06:52:57.975Z [INFO]  system.mfa: configurations restored
+2023-06-21T06:52:57.975Z [TRACE] mfa: loading login MFA configurations
+2023-06-21T06:52:57.976Z [TRACE] mfa: methods collected: num_existing=0
+2023-06-21T06:52:57.976Z [TRACE] mfa: configurations restored: namespace="" prefix=login-mfa/method/
+2023-06-21T06:52:57.976Z [TRACE] mfa: loading login MFA enforcement configurations
+2023-06-21T06:52:57.976Z [TRACE] mfa: enforcements configs collected: num_existing=0
+2023-06-21T06:52:57.976Z [TRACE] mfa: enforcement configurations restored: namespace="" prefix=login-mfa/enforcement/
+2023-06-21T06:52:57.977Z [TRACE] activity: scanned existing logs: out=[]
+2023-06-21T06:52:57.977Z [TRACE] activity: initializing new log
+2023-06-21T06:52:57.977Z [INFO]  core: starting raft active node
+2023-06-21T06:52:57.977Z [INFO]  storage.raft: starting autopilot: config="&{false 0 10s 24h0m0s 1000 0 10s false redundancy_zone upgrade_version}" reconcile_interval=0s
+2023-06-21T06:52:57.977Z [DEBUG] storage.raft.autopilot: autopilot is now running
+2023-06-21T06:52:57.977Z [DEBUG] storage.raft.autopilot: state update routine is now running
+2023-06-21T06:52:57.977Z [TRACE] activity: no intent log found
+2023-06-21T06:52:57.978Z [TRACE] activity: scanned existing logs: out=[]
+2023-06-21T06:52:57.978Z [DEBUG] core: request forwarding setup function
+2023-06-21T06:52:57.978Z [DEBUG] core: clearing forwarding clients
+2023-06-21T06:52:57.978Z [DEBUG] core: done clearing forwarding clients
+2023-06-21T06:52:57.978Z [DEBUG] core: generating replicated cluster signing key
+2023-06-21T06:52:57.985Z [DEBUG] core: leaving request forwarding setup function
+2023-06-21T06:52:57.985Z [INFO]  core: stopping replication
+2023-06-21T06:52:57.985Z [INFO]  core: closed sync connection
+2023-06-21T06:52:57.985Z [TRACE] replication.perf.logshipper: interrupting streams
+2023-06-21T06:52:57.985Z [TRACE] replication.perf.logshipper: done interrupting streams
+2023-06-21T06:52:57.985Z [TRACE] replication.dr.logshipper: interrupting streams
+2023-06-21T06:52:57.985Z [TRACE] replication.dr.logshipper: done interrupting streams
+2023-06-21T06:52:57.985Z [INFO]  core: replication stopped
+2023-06-21T06:52:57.985Z [INFO]  core: setting up replication
+2023-06-21T06:52:57.986Z [ERROR] core: a merkle tree reindex is required before replication can be started
+2023-06-21T06:52:57.986Z [INFO]  core: reindex is running in background, replication will be started once reindex completes
+2023-06-21T06:52:57.986Z [INFO]  core: replication setup finished
+2023-06-21T06:52:57.986Z [INFO]  core: running replication reindexing: diff=false force=false toggle replication=true no flush=false trees=2
+2023-06-21T06:52:57.986Z [INFO]  core: usage gauge collection is disabled
+2023-06-21T06:52:57.996Z [INFO]  core: post-unseal setup complete
+2023-06-21T06:52:57.997Z [INFO]  core: performance standby: forwarding client is nil, waiting for new leader
+2023-06-21T06:52:57.998Z [INFO]  replication.index.reindex: set starting WAL: value=25
+2023-06-21T06:52:58.090Z [INFO]  replication.index.reindex: starting storage scan
+2023-06-21T06:52:58.093Z [INFO]  replication.index.reindex: key scanning complete: num_keys=22
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: performing first replay: lastWAL=25
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: locking tree
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: locked tree
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: performing second replay: lastWAL=25
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: committing trees
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: root hash verified
+2023-06-21T06:52:58.097Z [INFO]  replication.index.reindex: reindexing subtree: tree=1
+2023-06-21T06:52:58.097Z [INFO]  replication.index.perf.reindex.subtree: locking subtree
+2023-06-21T06:52:58.097Z [INFO]  replication.index.perf.reindex.subtree: locked subtree
+2023-06-21T06:52:58.097Z [DEBUG] replication.index.perf.reindex.subtree: subtree root hash verified
+2023-06-21T06:52:58.142Z [INFO]  replication.index.perf.reindex.subtree: flushing dirty pages: num_dirty=5
+2023-06-21T06:52:58.164Z [DEBUG] replication.index.perf: flushed dirty pages: pages_flushed=1 pages_outstanding=2
+2023-06-21T06:52:58.173Z [DEBUG] replication.index.local: flushed dirty pages: pages_flushed=1 pages_outstanding=3
+2023-06-21T06:52:58.178Z [DEBUG] replication.index.perf: flushed dirty pages: pages_flushed=5 pages_outstanding=0
+2023-06-21T06:52:58.178Z [INFO]  replication.index.reindex: done reindexing subtree, deleting WAL: bad pages=0 tree=1
+2023-06-21T06:52:58.184Z [INFO]  replication.index.reindex: reindexing subtree: tree=2
+2023-06-21T06:52:58.184Z [INFO]  replication.index.local.reindex.subtree: locking subtree
+2023-06-21T06:52:58.184Z [INFO]  replication.index.local.reindex.subtree: locked subtree
+2023-06-21T06:52:58.184Z [DEBUG] replication.index.local.reindex.subtree: subtree root hash verified
+2023-06-21T06:52:58.213Z [INFO]  replication.index.local.reindex.subtree: flushing dirty pages: num_dirty=3
+2023-06-21T06:52:58.233Z [DEBUG] replication.index.local: flushed dirty pages: pages_flushed=3 pages_outstanding=0
+2023-06-21T06:52:58.233Z [INFO]  replication.index.reindex: done reindexing subtree, deleting WAL: bad pages=0 tree=2
+2023-06-21T06:52:58.238Z [INFO]  core: replication index repaired, starting replication
+2023-06-21T06:52:58.238Z [INFO]  core: stopping replication
+2023-06-21T06:52:58.238Z [INFO]  core: closed sync connection
+2023-06-21T06:52:58.238Z [TRACE] replication.perf.logshipper: interrupting streams
+2023-06-21T06:52:58.238Z [TRACE] replication.perf.logshipper: done interrupting streams
+2023-06-21T06:52:58.238Z [TRACE] replication.dr.logshipper: interrupting streams
+2023-06-21T06:52:58.238Z [TRACE] replication.dr.logshipper: done interrupting streams
+2023-06-21T06:52:58.238Z [INFO]  core: replication stopped
+2023-06-21T06:52:58.238Z [INFO]  core: setting up replication
+2023-06-21T06:52:58.238Z [INFO]  replication.index: clean merkle tree started
+2023-06-21T06:52:58.245Z [INFO]  replication.index: clean merkle tree complete: keys_cleaned=0
+2023-06-21T06:52:58.248Z [INFO]  core: replicated cluster information not found or disabled, not activating client
+2023-06-21T06:52:58.248Z [INFO]  core: replication setup finished
+2023-06-21T06:52:58.257Z [INFO]  core: replication reindex complete: fixed_pages=0
+2023-06-21T06:53:02.959Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:02.966Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:07.924Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:07.930Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:08.125Z [TRACE] storage.raft: adding server to raft via autopilot: id=1
+2023-06-21T06:53:08.125Z [INFO]  storage.raft: updating configuration: command=AddNonvoter server-id=1 server-addr=10.42.10.201:8201 servers="[{Suffrage:Voter ID:0 Address:10.42.10.200:8201} {Suffrage:Nonvoter ID:1 Address:10.42.10.201:8201}]"
+2023-06-21T06:53:08.128Z [INFO]  storage.raft: added peer, starting replication: peer=1
+2023-06-21T06:53:08.128Z [DEBUG] core.cluster-listener: creating rpc dialer: address=10.42.10.201:8201 alpn=raft_storage_v1 host=raft-19f5ccb6-5020-5370-6a1f-59ca072a164e
+2023-06-21T06:53:08.130Z [INFO]  system: follower node answered the raft bootstrap challenge: follower_server_id=1
+2023-06-21T06:53:08.130Z [ERROR] storage.raft: failed to appendEntries to: peer="{Nonvoter 1 10.42.10.201:8201}" error="dial tcp 10.42.10.201:8201: connect: connection refused"
+2023-06-21T06:53:08.210Z [DEBUG] core.cluster-listener: creating rpc dialer: address=10.42.10.201:8201 alpn=raft_storage_v1 host=raft-19f5ccb6-5020-5370-6a1f-59ca072a164e
+2023-06-21T06:53:08.217Z [DEBUG] core.cluster-listener: performing client cert lookup
+2023-06-21T06:53:08.225Z [WARN]  storage.raft: appendEntries rejected, sending older logs: peer="{Nonvoter 1 10.42.10.201:8201}" next=2
+2023-06-21T06:53:08.247Z [INFO]  storage.raft: pipelining replication: peer="{Nonvoter 1 10.42.10.201:8201}"
+2023-06-21T06:53:09.065Z [DEBUG] core.cluster-listener: creating rpc dialer: address=10.42.10.201:8201 alpn=raft_storage_v1 host=raft-19f5ccb6-5020-5370-6a1f-59ca072a164e
+2023-06-21T06:53:09.074Z [DEBUG] core.cluster-listener: performing client cert lookup
+2023-06-21T06:53:09.944Z [ERROR] storage.raft.autopilot: UpgradeVersionTag not found in server metadata: id=1 name=1 address=10.42.10.201:8201 upgrade_version_tag=upgrade_version
+2023-06-21T06:53:11.645Z [DEBUG] core.cluster-listener: performing server cert lookup
+2023-06-21T06:53:11.658Z [DEBUG] core.request-forward: got request forwarding connection
+2023-06-21T06:53:11.669Z [DEBUG] core.cluster-listener: performing server cert lookup
+2023-06-21T06:53:11.694Z [DEBUG] core.perf-standby: got replication connection
+2023-06-21T06:53:11.694Z [INFO]  core.perf-standby: serving replication for secondary: alpn=perf_standby_v1 serverName=9289c7bc-5b90-ca5d-5cb8-9e05d8037550 secondary ID=ea77f340-95de-3549-3edd-5ae3efe98938
+2023-06-21T06:53:11.712Z [TRACE] core: starting serving WALs: clientID=ea77f340-95de-3549-3edd-5ae3efe98938
+2023-06-21T06:53:12.924Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:12.932Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:17.925Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:17.932Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:18.280Z [TRACE] storage.raft: adding server to raft via autopilot: id=2
+2023-06-21T06:53:18.280Z [INFO]  storage.raft: updating configuration: command=AddNonvoter server-id=2 server-addr=10.42.10.202:8201 servers="[{Suffrage:Voter ID:0 Address:10.42.10.200:8201} {Suffrage:Nonvoter ID:1 Address:10.42.10.201:8201} {Suffrage:Nonvoter ID:2 Address:10.42.10.202:8201}]"
+2023-06-21T06:53:18.283Z [INFO]  storage.raft: added peer, starting replication: peer=2
+2023-06-21T06:53:18.283Z [DEBUG] core.cluster-listener: creating rpc dialer: address=10.42.10.202:8201 alpn=raft_storage_v1 host=raft-19f5ccb6-5020-5370-6a1f-59ca072a164e
+2023-06-21T06:53:18.284Z [ERROR] storage.raft: failed to appendEntries to: peer="{Nonvoter 2 10.42.10.202:8201}" error="dial tcp 10.42.10.202:8201: connect: connection refused"
+2023-06-21T06:53:18.285Z [INFO]  system: follower node answered the raft bootstrap challenge: follower_server_id=2
+2023-06-21T06:53:18.385Z [DEBUG] core.cluster-listener: creating rpc dialer: address=10.42.10.202:8201 alpn=raft_storage_v1 host=raft-19f5ccb6-5020-5370-6a1f-59ca072a164e
+2023-06-21T06:53:18.392Z [DEBUG] core.cluster-listener: performing client cert lookup
+2023-06-21T06:53:18.401Z [WARN]  storage.raft: appendEntries rejected, sending older logs: peer="{Nonvoter 2 10.42.10.202:8201}" next=2
+2023-06-21T06:53:18.425Z [INFO]  storage.raft: pipelining replication: peer="{Nonvoter 2 10.42.10.202:8201}"
+2023-06-21T06:53:19.083Z [DEBUG] core.cluster-listener: creating rpc dialer: address=10.42.10.202:8201 alpn=raft_storage_v1 host=raft-19f5ccb6-5020-5370-6a1f-59ca072a164e
+2023-06-21T06:53:19.093Z [DEBUG] core.cluster-listener: performing client cert lookup
+2023-06-21T06:53:19.944Z [ERROR] storage.raft.autopilot: UpgradeVersionTag not found in server metadata: id=2 name=2 address=10.42.10.202:8201 upgrade_version_tag=upgrade_version
+2023-06-21T06:53:21.798Z [DEBUG] core.cluster-listener: performing server cert lookup
+2023-06-21T06:53:21.811Z [DEBUG] core.request-forward: got request forwarding connection
+2023-06-21T06:53:21.822Z [DEBUG] core.cluster-listener: performing server cert lookup
+2023-06-21T06:53:21.847Z [DEBUG] core.perf-standby: got replication connection
+2023-06-21T06:53:21.847Z [INFO]  core.perf-standby: serving replication for secondary: alpn=perf_standby_v1 serverName=0b97345c-6e1e-ff91-b3c4-6cdf01fe1104 secondary ID=11361230-efae-4848-28be-9824e835f0f9
+2023-06-21T06:53:21.866Z [TRACE] core: starting serving WALs: clientID=11361230-efae-4848-28be-9824e835f0f9
+2023-06-21T06:53:22.925Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:22.931Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:27.924Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:27.930Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:27.944Z [INFO]  storage.raft.autopilot: Promoting server: id=1 address=10.42.10.201:8201 name=1
+2023-06-21T06:53:27.944Z [INFO]  storage.raft: updating configuration: command=AddVoter server-id=1 server-addr=10.42.10.201:8201 servers="[{Suffrage:Voter ID:0 Address:10.42.10.200:8201} {Suffrage:Voter ID:1 Address:10.42.10.201:8201} {Suffrage:Nonvoter ID:2 Address:10.42.10.202:8201}]"
+2023-06-21T06:53:32.927Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:32.936Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:37.892Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:37.905Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
+2023-06-21T06:53:37.909Z [INFO]  storage.raft.autopilot: Promoting server: id=2 address=10.42.10.202:8201 name=2
+2023-06-21T06:53:37.909Z [INFO]  storage.raft: updating configuration: command=AddVoter server-id=2 server-addr=10.42.10.202:8201 servers="[{Suffrage:Voter ID:0 Address:10.42.10.200:8201} {Suffrage:Voter ID:1 Address:10.42.10.201:8201} {Suffrage:Voter ID:2 Address:10.42.10.202:8201}]"
+2023-06-21T06:53:42.894Z [DEBUG] replication.index.perf: saved checkpoint: num_dirty=0
+2023-06-21T06:53:42.903Z [DEBUG] replication.index.local: saved checkpoint: num_dirty=0
